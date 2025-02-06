@@ -50,7 +50,7 @@ echo "{{ join_output.stdout }}" > k8s_worker_node_connection.j2
 mkdir Remote_Files
 
 # Add content to worker_conn_string
-echo "{{ join_output.stdout }}" > worker_conn_string
+echo "{{ join_output.stdout }}" > Remote_Files/worker_conn_string
 
 # Add content to inventory
 echo "[kubernetes]" > inventory
