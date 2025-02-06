@@ -15,15 +15,6 @@ sudo apt update
 sudo apt install ansible
 ansible --version
 
-# Set up SSH key pair
-# Generate an SSH key pair. You will be prompted to enter a name for your key pair.
-# You can either type a custom name or press Enter to use the default name `id_rsa` within the `.ssh` directory.
-ssh-keygen
-
-#After you execute the script of the Worker Number 1 the next command can be executed so taht you can copy the pub key to the Remote Host
-#Change this based on your needs and when the script is executing the ssh you will need to type the password of the remote host
-ssh-copy-id Worker@remote_hostIp 
-
 
 
 # Create directories and files for Ansible
