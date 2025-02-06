@@ -29,8 +29,8 @@ chmod +x Script-Master-Nb1.sh
 
 Next Step On you Controller Node :
 
-. Set up SSH key pair
-. Generate an SSH key pair. You will be prompted to enter a name for your key pair.
+Set up SSH key pair
+Generate an SSH key pair. You will be prompted to enter a name for your key pair.
 You can either type a custom name or press Enter to use the default name `id_rsa` within the `.ssh` directory. In our case we will use the default and type Enter.
 
 ```bash
