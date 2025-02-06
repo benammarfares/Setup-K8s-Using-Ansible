@@ -1,4 +1,6 @@
 # Kubernetes Ansible Setup
+## About The Project
+![Image](https://github.com/user-attachments/assets/84c65343-71b5-413f-8af4-5171cd7ea05f)<br>
 ## Getting Started
 
 First, clone the repository to your local machine:
