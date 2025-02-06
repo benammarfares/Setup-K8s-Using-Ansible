@@ -16,29 +16,15 @@ sudo apt install ansible
 ansible --version
 
 # Set up SSH key pair
+# Generate an SSH key pair. You will be prompted to enter a name for your key pair.
+# You can either type a custom name or press Enter to use the default name `id_rsa` within the `.ssh` directory.
 ssh-keygen
-sudo apt install openssh-server
-sudo systemctl stop ufw
-sudo systemctl disable ufw
-ssh-copy-id username@remote_host
+
+#After you execute the script of the Worker Number 1 the next command can be executed so taht you can copy the pub key to the Remote Host
+#Change this based on your needs and when the script is executing the ssh you will need to type the password of the remote host
+ssh-copy-id Worker@remote_hostIp 
 
 
-# Add the necessary lines to /etc/ssh/sshd_config
-sudo sh -c 'echo "PasswordAuthentication no" >> /etc/ssh/sshd_config'
-sudo sh -c 'echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config'
-sudo sh -c 'echo "PermitRootLogin no" >> /etc/ssh/sshd_config'
-
-# Restart the SSH service to apply changes
-sudo systemctl restart ssh
-
-# SSH into master and worker nodes
-ssh masterName@IpMaster
-sudo usermod -aG sudo $USER
-exit
-
-ssh WorkerName@IpWorker
-sudo usermod -aG sudo $USER
-exit
 
 # Create directories and files for Ansible
 mkdir k8s-ansible
@@ -63,11 +49,7 @@ echo "" >> inventory
 echo "[workers]" >> inventory
 echo "@WorkerIp ansible_ssh_user=WorkerUsername" >> inventory
 
-# SSH into master node to remove lock files
-ssh master@IpMaster
-sudo rm /var/lib/dpkg/lock-frontend
-sudo rm /var/lib/dpkg/lock
-sudo dpkg --configure -a
+
 
 # Create Ansible playbook
 cat <<EOL > playbook.yml
