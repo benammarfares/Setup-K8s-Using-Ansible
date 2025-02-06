@@ -9,7 +9,6 @@ sudo sh -c 'echo "PermitRootLogin no" >> /etc/ssh/sshd_config'
 sudo systemctl restart ssh
 
 # Remove lock files
-ssh master@IpMaster
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/lib/dpkg/lock
 sudo dpkg --configure -a
